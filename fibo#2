@@ -1,4 +1,6 @@
-#include<stdio.h>
+#include<iostream>
+#include<math.h>
+using namespace std;
 int fib(int n)
 {
 	if (n <= 1)
@@ -12,15 +14,15 @@ int main()
 {
 	 
 long t;
-scanf("ld",&t);
+cin>>t;
 while(t>0)
 {
 	
      long a=0,b=1,num,n;
 	int m=1,j=0;
-	scanf("%ld",&n);
+	cin>>n;
 	
-	while(n)
+	while(n>0)
 	{
 	    n=n/2;
 	    j++;
@@ -28,9 +30,11 @@ while(t>0)
 	}
 	m=m-1;
 	m=m/2;
-	j=fib(m)%10;
-	printf("\n%d",j);
-	t=t-1;
+	cout<<fib(m)%10<<endl;
+	
+	
+	
+	t--;
 }
 return 0;
 }
