@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+void func(unsigned long *arr,unsigned long n)
+{
+	unsigned long arr1[100000],i,k;
+	if(n==1)
+	{
+		cout<<arr[0]%10;
+		return;
+	}
+	for(i=1,k=0;i<n;i=i+2)
+	{
+		arr1[k]=arr[i];
+		k++;
+	}
+	func(arr1,k);
+}
+int main()
+{
+	 
+long t;
+unsigned long n;
+cin>>t;
+while(t>0)
+{
+	cin>>n;
+	int a=0,b=1,i,num,j=0;unsigned long arr[100000];
+	arr[0]=0;
+	arr[1]=1;
+	for(i=0;i<n;i++)
+	{
+		if(i<=1)
+		{
+			arr[i]=i;
+		}
+		else
+		{
+			num=a+b;
+			a=b;
+			b=num;
+			arr[i]=num;
+		}
+	}
+	func(arr,n);
+	
+	t--;
+}
+return 0;
+}
