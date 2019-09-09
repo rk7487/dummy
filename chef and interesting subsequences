@@ -1,0 +1,55 @@
+#include <bits/stdc++.h> 
+using namespace std;
+void subsequences(int* in,int i,int* out,int j,int n,int m,vector<int> &v)
+{
+	//base case
+	if(i==n){
+
+		if(j==m)
+		{
+			int s=0;
+		for(int k=0;k<j;k++)
+		{
+		s=s+out[k];
+		}
+		v.push_back(s);
+		
+		
+	}
+		return ;
+	}
+
+	subsequences(in,i+1,out,j,n,m,v);
+	out[j]=in[i];
+	subsequences(in,i+1,out,j+1,n,m,v);
+}
+int main() {
+    int in[100],n,out[100],t,k;
+    vector<int> v;
+    cin>>t;
+    while(t>=1 && t<=10)
+    {
+    	int count=0;
+    cin>>n>>k;
+    if(n<1 && n>50)
+    exit(0);
+    for(int i=0;i<n;i++)
+    {
+    cin>>in[i];
+	}
+
+    subsequences(in,0,out,0,n,k,v);
+    sort(v.begin(),v.end());
+    for(int i=0;i<v.size();i++)
+    {
+    	if(v[0]==v[i])
+    	{
+    		count++;
+		}
+	
+	}
+		cout<<count<<endl;
+	t--;
+	}
+	return 0;
+}
