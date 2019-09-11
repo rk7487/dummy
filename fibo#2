@@ -14,21 +14,21 @@ int main()
 	 
 long t;
 cin>>t;
-while(t>0)
+while(t--)
 {
 	
     unsigned long int n;
 	int m=1;
 	cin>>n;
 	
-	while(n>1)
+	while(n>0)
 	{
 	    n=n/2;
 	    m=2*m;
             m=m%60;
 	}
 	m=m-1;
-	cout<<fib(m)<<endl;
+	cout<<fib(m)%10<<endl;
 	
 	
 	
